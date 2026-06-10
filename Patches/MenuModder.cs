@@ -16,7 +16,7 @@ namespace NANDTweaks.Patches
         public static void Postfix(StartMenu __instance, GameObject ___saveSlotUI)
         {
             if (!Plugin.saveLoadThumbs.Value) return;
-            foreach (var button in ___saveSlotUI.GetComponentsInChildren<StartMenuButton>())
+            foreach (var button in ___saveSlotUI.GetComponentsInChildren<StartMenuButton>(true))
             {
                 StartMenuButtonType type = (StartMenuButtonType)Traverse.Create(button).Field("type").GetValue();
 
