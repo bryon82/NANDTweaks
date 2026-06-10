@@ -19,7 +19,7 @@ namespace NANDTweaks.Patches
             [HarmonyPatch("Update")]
             [HarmonyPostfix] private static void Postfix(BackupSavesListUI __instance, int ___showingListFor)
             {
-                if (___showingListFor == 1 && __instance.list.gameObject.activeInHierarchy)
+                if (___showingListFor % 6 == 1 && __instance.list.gameObject.activeInHierarchy)
                 {
                     saveSlotUILabel.SetActive(value: false);
                 }
